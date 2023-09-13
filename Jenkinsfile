@@ -3,12 +3,16 @@ pipeline{
     stages{
         stage("Build"){
             steps {
-                echo("Hello Build");
+                echo("Start Build");
+                bat("mvnw.cmd clean compile test-compile");
+                echo("Finish Build");
             }
         }
         stage("Test"){
              steps {
-                 echo("Hello Test");
+                 echo("Start Test");
+                 bat("mvnw.cmd test");
+                 echo("Finish Test");
              }
         }
         stage("Deploy"){
